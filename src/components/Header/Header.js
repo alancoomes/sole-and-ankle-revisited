@@ -6,6 +6,7 @@ import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import Icon from '../Icon';
+import UnstyledButton from '../UnstyledButton';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -32,9 +33,15 @@ const Header = () => {
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
         <IconWrapper>
+          <UnstyledButton>
           <Icon id="shopping-bag" strokeWidth={2} />
+          </UnstyledButton>
+          <UnstyledButton>
           <Icon id="search" strokeWidth={2} />
-          <Icon id="menu" strokeWidth={2} />
+          </UnstyledButton>
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
+          <Icon id="menu" strokeWidth={2}/>
+          </UnstyledButton>
         </IconWrapper>
         <Side id="right-side"/>
       </MainHeader>
@@ -46,6 +53,7 @@ const Header = () => {
     </header>
   );
 };
+
 
 const IconWrapper = styled.div`
    display: none;
