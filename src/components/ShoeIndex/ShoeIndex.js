@@ -68,7 +68,6 @@ const LeftColumn = styled.div`
 
 const MainColumn = styled.div`
   flex: 1;
-
 `;
 
 const Header = styled.header`
