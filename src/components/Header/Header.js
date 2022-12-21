@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { COLORS, QUERIES, WEIGHTS } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
@@ -17,6 +17,7 @@ const Header = () => {
   return (
     <header>
       <SuperHeader />
+      <SmallDeviceSuper/>
       <MainHeader>
         <Side>
           <Logo />
@@ -40,6 +41,17 @@ const Header = () => {
   );
 };
 
+
+const SmallDeviceSuper = styled.div`
+  display: none;
+
+  @media ${QUERIES.tabletMax} {
+    display: revert;
+    height: 4px;
+    background-color: ${COLORS.gray[900]};
+  }
+
+`;
 const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
