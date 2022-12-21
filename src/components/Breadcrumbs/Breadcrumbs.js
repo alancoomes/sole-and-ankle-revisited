@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { COLORS } from '../../constants';
+import { COLORS, QUERIES } from '../../constants';
 
 const Breadcrumbs = ({ children }) => {
   return <Wrapper>{children}</Wrapper>;
@@ -26,6 +26,7 @@ const CrumbWrapper = styled.div`
       color: ${COLORS.gray[300]};
     }
   }
+
 `;
 
 const CrumbLink = styled.a`
