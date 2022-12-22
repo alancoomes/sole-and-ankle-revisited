@@ -9,12 +9,27 @@ import Spacer from '../Spacer';
 import ShoeSidebar from '../ShoeSidebar';
 import ShoeGrid from '../ShoeGrid';
 
+const ShoeBreadcrumbs = () => {
+  return (<Breadcrumbs>
+    <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
+    <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
+    <Breadcrumbs.Crumb href="/sale/shoes">
+      Shoes
+    </Breadcrumbs.Crumb>
+  </Breadcrumbs>);
+}
+
 const ShoeIndex = ({ sortId, setSortId }) => {
   return (
     <Wrapper>
       <MainColumn>
         <Header>
-          <Title>Running</Title>
+          <div>
+            <MobileBreadcrumbs>
+            <ShoeBreadcrumbs/>
+            </MobileBreadcrumbs>
+            <Title>Running</Title>
+          </div>
           <Select
             label="Sort"
             value={sortId}
@@ -28,13 +43,9 @@ const ShoeIndex = ({ sortId, setSortId }) => {
         <ShoeGrid />
       </MainColumn>
       <LeftColumn>
-        <Breadcrumbs>
-          <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale/shoes">
-            Shoes
-          </Breadcrumbs.Crumb>
-        </Breadcrumbs>
+        <DesktopBreadcrumbs>
+        <ShoeBreadcrumbs/>
+        </DesktopBreadcrumbs>
         <Spacer id="left-column-spacer" size={42} />
         <ShoeSidebar />
       </LeftColumn>
@@ -42,27 +53,33 @@ const ShoeIndex = ({ sortId, setSortId }) => {
   );
 };
 
+const DesktopBreadcrumbs = styled.div`
+  @media ${QUERIES.tabletMax} {
+    display: none;
+  }
+`;
+
+const MobileBreadcrumbs = styled.div`
+  display: none;
+
+  @media ${QUERIES.tabletMax} {
+    display: revert;
+  }
+`;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
   align-items: baseline;
   gap: 32px;
 
-  @media ${QUERIES.tabletMax} {
-    flex-direction: column-reverse;
-    gap: 0;
-  }
 `;
 
 const LeftColumn = styled.div`
   flex-basis: 248px;
 
   @media ${QUERIES.tabletMax} {
-    flex-basis: 0;
-
-    #left-column-spacer {
-      display: none;
-    }
+    display: none;
   }
 `;
 
@@ -74,6 +91,10 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  @media ${QUERIES.tabletMax} {
+    align-items: flex-end;
+  }
 `;
 
 const Title = styled.h2`

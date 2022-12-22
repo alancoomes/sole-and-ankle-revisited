@@ -21,9 +21,12 @@ const App = () => {
 const Main = styled.main`
   padding: 64px 32px;
 
+  @media ${QUERIES.tabletMax} {
+    padding: 48px 32px;
+  }
+
   @media ${QUERIES.phoneMax} {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 48px 16px;
   }
 `;
 

@@ -24,9 +24,6 @@ const Sidebar = () => {
 };
 
 const Wrapper = styled.aside`
-@media ${QUERIES.tabletMax} {
-    display: none;
-  }
 `;
 
 const Link = styled.a`
