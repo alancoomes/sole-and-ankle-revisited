@@ -25,7 +25,7 @@ const Header = () => {
           <Logo />
         </Side>
         <Nav>
-          <NavLink href="/sale">Sale</NavLink>
+          <NavLink href="/sale">SaleSaleSaleSaleSale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
           <NavLink href="/men">Men</NavLink>
           <NavLink href="/women">Women</NavLink>
@@ -80,6 +80,7 @@ const SmallDeviceSuper = styled.div`
 
 `;
 const MainHeader = styled.div`
+  overflow: scroll;
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
@@ -102,7 +103,11 @@ const MainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(
+    1.5rem,
+    6vw - 2rem,
+    4rem
+  );
   margin: 0px 48px;
 
   @media ${QUERIES.tabletMax} {
