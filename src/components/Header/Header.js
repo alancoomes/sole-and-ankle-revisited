@@ -20,7 +20,6 @@ const Header = () => {
   return (
     <header>
       <SuperHeader />
-      <SmallDeviceSuper/>
       <MainHeader>
         <LogoWrapper>
           <Logo />
@@ -72,27 +71,18 @@ const IconWrapper = styled.div`
    }
 `;
 
-const SmallDeviceSuper = styled.div`
-  display: none;
 
-  @media ${QUERIES.tabletMax} {
-    display: revert;
-    height: 4px;
-    background-color: var(--color-gray-900);
-  }
-
-`;
 const MainHeader = styled.div`
   overflow: scroll;
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
   border-bottom: 1px solid var(--color-gray-300);
 
   @media ${QUERIES.tabletMax} {
       justify-content: space-between;
       align-items: center;
+      border-top: 4px solid var(--color-gray-900);
    }
 
    @media ${QUERIES.phoneMax} {
@@ -104,9 +94,9 @@ const MainHeader = styled.div`
 const Nav = styled.nav`
   display: flex;
   gap: clamp(
-    1.5rem,
-    6vw - 2rem,
-    4rem
+    1rem,
+    9.2vw - 4.5rem,
+    3.5rem
   );
   margin: 0px 48px;
 

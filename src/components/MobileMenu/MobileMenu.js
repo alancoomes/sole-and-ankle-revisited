@@ -15,11 +15,13 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
   }
 
   return (
-    <Overlay>
-      <Content>
+    <Overlay isOpen={isOpen} onDismiss={onDismiss} > 
+      <Content aria-label="Menu Content">
       <DismissButton onClick={onDismiss}>
+        <VisuallyHidden>Dismiss Menu</VisuallyHidden>
         <Icon id="close" strokeWidth={2}/>
       </DismissButton>
+      <Filler/>
       <Nav>
         <NavLink href="/sale">Sale</NavLink>
         <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -46,23 +48,23 @@ const Overlay = styled(DialogOverlay)`
   bottom: 0;
   right: 0;
   left: 0;
-  background: hsla(220, 5%, 40%, 0.8);
+  background: hsla(220deg 5% 40% / 0.8);
   display: flex;
   justify-content: flex-end;
   width: 100%;
 
 `;
 
-const DismissButton = styled.button`
-  align-self: flex-end;
-  color: black;
-  border: none;
-  background-color: transparent;
+const DismissButton = styled(UnstyledButton)`
+  position: absolute;
+  top: 10px;
+  right: 0;
+  padding: 16px;
 `;
 
 const Content = styled(DialogContent)`
   position: relative;
-  width: 80%;
+  width: 300px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -76,7 +78,7 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 22px;
+  gap: 16px;
   text-transform: uppercase;
 `;
 
@@ -87,14 +89,20 @@ const NavLink = styled.a`
   line-height: (21.13 / 16) + 'rem';
   font-weight: var(--weight-medium);
 
-  &:hover {
+  &:first-of-type {
     color: var(--color-secondary);
   }
 `;
 
+const Filler = styled.div`
+  flex: 1;
+`;
+
 const Footer = styled.nav`
+  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: flex-start;
   gap: 14px;
 `;

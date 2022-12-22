@@ -79,7 +79,7 @@ const LeftColumn = styled.div`
   flex-basis: 248px;
 
   @media ${QUERIES.tabletMax} {
-    display: none;
+    display: none; 
   }
 `;
 
