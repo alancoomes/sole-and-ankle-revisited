@@ -22,9 +22,9 @@ const Header = () => {
       <SuperHeader />
       <SmallDeviceSuper/>
       <MainHeader>
-        <Side>
+        <LogoWrapper>
           <Logo />
-        </Side>
+        </LogoWrapper>
         <Nav>
           <NavLink href="/sale">SaleSaleSaleSaleSale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -47,7 +47,7 @@ const Header = () => {
           <Icon id="menu" strokeWidth={2}/>
           </UnstyledButton>
         </IconWrapper>
-        <Side id="right-side"/>
+        <Filler/>
       </MainHeader>
 
       <MobileMenu
@@ -64,12 +64,11 @@ const IconWrapper = styled.div`
 
    @media ${QUERIES.tabletMax} {
       display: flex;
-      justify-content: baseline;
-      gap: 40px;
+      gap: 32px;
    }
 
    @media ${QUERIES.phoneMax} {
-      gap: 24px;
+      gap: 16px;
    }
 `;
 
@@ -93,10 +92,7 @@ const MainHeader = styled.div`
 
   @media ${QUERIES.tabletMax} {
       justify-content: space-between;
-
-      #right-side {
-        display: none;
-      }
+      align-items: center;
    }
 
    @media ${QUERIES.phoneMax} {
@@ -119,8 +115,20 @@ const Nav = styled.nav`
    }
 `;
 
-const Side = styled.div`
+const LogoWrapper = styled.div`
   flex: 1;
+
+  @media ${QUERIES.tabletMax} {
+    flex: revert;
+  }
+`;
+
+const Filler = styled.div`
+  flex: 1;
+
+  @media ${QUERIES.tabletMax} {
+    display: none;
+  }
 `;
 
 const NavLink = styled.a`
