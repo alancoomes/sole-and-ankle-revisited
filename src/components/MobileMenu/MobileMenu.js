@@ -69,7 +69,7 @@ const Content = styled(DialogContent)`
   justify-content: space-between;
   align-items: flex-start;
   padding: 32px;
-  background-color: ${COLORS.white};
+  background-color: var(--color-white);
 `;
 
 const Nav = styled.nav`
@@ -82,13 +82,13 @@ const Nav = styled.nav`
 
 const NavLink = styled.a`
   text-decoration: none;
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-900);
   font-size: (18/16) + 'rem';
   line-height: (21.13 / 16) + 'rem';
-  font-weight: ${WEIGHTS.medium};
+  font-weight: var(--weight-medium);
 
   &:hover {
-    color: ${COLORS.secondary};
+    color: var(--color-secondary);
   }
 `;
 
@@ -101,9 +101,9 @@ const Footer = styled.nav`
 
 const FooterLink = styled.a`
   text-decoration: none;
-  color: ${COLORS.gray[700]};
+  color: var(--color-gray-700);
   font-size: (14/16) + 'rem';
   line-height: (16.44 / 16) + 'rem';
-  font-weight: ${WEIGHTS.normal};
+  font-weight: var(--weight-normal);
   `;
 

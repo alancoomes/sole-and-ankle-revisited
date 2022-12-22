@@ -75,7 +75,7 @@ const SmallDeviceSuper = styled.div`
   @media ${QUERIES.tabletMax} {
     display: revert;
     height: 4px;
-    background-color: ${COLORS.gray[900]};
+    background-color: var(--color-gray-900);
   }
 
 `;
@@ -85,7 +85,7 @@ const MainHeader = styled.div`
   align-items: baseline;
   padding: 18px 32px;
   height: 72px;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+  border-bottom: 1px solid var(--color-gray-300);
 
   @media ${QUERIES.tabletMax} {
       justify-content: space-between;
@@ -123,11 +123,11 @@ const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
-  font-weight: ${WEIGHTS.medium};
+  color: var(--color-gray-900);
+  font-weight: var(--weight-medium);
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--color-secondary);
   }
 `;
 
